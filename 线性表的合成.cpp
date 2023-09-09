@@ -15,7 +15,7 @@ void createList(List &L, int n) {
 	L->next = NULL;
    	for (int i = n; i > 0; i--) {
 	node* p = (node*)malloc(sizeof(node));
-	printf("ÊäÈëµÚ%d¸öÔªËØ", i);
+	printf("è¾“å…¥ç¬¬%dä¸ªå…ƒç´ ", i);
 	scanf_s("%d", &p->data);
 	p->next = L->next;    
 	 L->next = p;    
@@ -28,6 +28,7 @@ void connect(List &a, List &b) {
 	int e;
 		for (int i = 1; i <= b_len; i++) {
 		e = getElems(b, i, e);
+	//åˆ¤æ–­å…ƒç´ é‡å¤ï¼Œé‡å¤å°±ä¸æ‰§è¡Œæ’å…¥å‡½æ•°
 		if (!locateElems(a, e)) {
 			Inserts(a, a_len, e);
 		}
@@ -49,7 +50,7 @@ int Inserts(List &L, int i, int &e) {
 }
 int locateElems(List L, int e) {
 	node* p = L->next;
-	//pÎªNULLºó£¬»á×Ô¶¯ÍË³ö£¬²»¼Ó»áµ¼ÖÂÎÞÏÞÑ­»·
+	//pä¸ºNULLåŽï¼Œä¼šè‡ªåŠ¨é€€å‡ºï¼Œä¸åŠ ä¼šå¯¼è‡´æ— é™å¾ªçŽ¯
 	while (p && p->data != e) {
 		p = p->next;
 	}
@@ -75,6 +76,7 @@ int Lengths(List L) {
 		}
 	return cnt;
 }
+//æ˜¾ç¤ºåˆæˆåŽçš„çº¿æ€§è¡¨
 void traverlist(List L){
 	node* p = L->next;
 	while (p) {
@@ -84,13 +86,13 @@ void traverlist(List L){
 	}
 int main() {
 	int m,n,e;
-	printf("aµÄ¸öÊýn:");
+	printf("açš„ä¸ªæ•°n:");
 	scanf_s("%d", &m);
-	printf("ÔªËØ£º");
+	printf("å…ƒç´ ï¼š");
 	createList(a, m);
-	printf("bµÄ¸öÊýn:");
+	printf("bçš„ä¸ªæ•°n:");
 	scanf_s("%d", &n);
-	printf("ÔªËØ£º");
+	printf("å…ƒç´ ï¼š");
 	createList(b, n);
 	printf("\n");
 	connect(a, b);
